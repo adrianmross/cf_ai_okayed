@@ -1,3 +1,6 @@
+.devenv*
+.direnv/
+devenv.local.nix
 node_modules/
 dist/
 .wrangler/
