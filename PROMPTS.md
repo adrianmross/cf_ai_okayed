@@ -85,3 +85,38 @@ and static assets are all on the free plan.
 - `feat(playground): add in-browser policy playground and narrowing demo`
 - `docs: add README, prompt history and screenshots`
 
+## 5. Simpler UI, cleaner code
+
+```text
+Let's simplify the web policy view the same way we did the playground and [redacted]. Propose some code clean-ups.
+```
+
+- `fix(worker): refuse live-state sockets without the owner token`
+- `feat(ui): add shared block components`
+- `refactor(web): rebuild on shared blocks with tabs and a Debug switch`
+- `refactor(playground): ask-your-policy view and words-to-grant view on shared blocks`
+- `refactor(engine): split binding from narrowing and share one capping rule`
+- `refactor(core): split records, card building and the snapshot view out of the service`
+- `chore: flag unused code in typecheck; document the ui package`
+- `docs: add code-by-layer and test-coverage chart`
+
+## 6. Standing authority, and budgets
+
+```text
+Create some reasonable default postures, but leave it to the user to create the policies they want. What we have
+right now are one-time approvals shown as a policy, but a policy is for repeat actions: with an expiration, bounded to
+a couple of uses, or bounded on scored risk. Reference [redacted].
+```
+
+```text
+Turn risk budgets off by default, and let them be global or local to single policies, actions or approvals.
+```
+
+- `feat(engine)!: standing policies with horizons, budgets and conditions`
+- `feat(core): run standing policies with budgets, statements and top-ups`
+- `feat(ui): edit standing policies in place, with budgets left and top-up`
+- `docs: describe standing policies`
+- `feat: make budgets opt-in, on one policy or shared across policies`
+- `docs: describe opt-in and shared budgets`
+- `docs: bring the prompt history up to date`
+
