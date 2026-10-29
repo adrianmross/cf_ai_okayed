@@ -185,4 +185,10 @@ up through duration, then swipe all the way through to confirm. The same for den
 - `feat: approve any service's actions, end to end`
 - `feat(web): trust a CI workflow, and work with any registered action`
 - `docs: describe the platform-neutral core: runtimes, packs, connectors, identity`
+- `feat(engine): rules and limits for groups of agents`
+- `feat(core): limits from outside the person, and agent groups`
+- `feat(interop): OAuth scopes, rich authorization requests, UCAN, SCIM and organization policies`
+- `feat: organization limits and SCIM provisioning on the Worker and on Node`
+- `feat(web): show an organization's limits above your rules`
+- `docs: Durable Objects, Cloudflare, and other permission systems`
 
