@@ -192,3 +192,18 @@ up through duration, then swipe all the way through to confirm. The same for den
 - `feat(web): show an organization's limits above your rules`
 - `docs: Durable Objects, Cloudflare, and other permission systems`
 
+## 10. Swipe to decide, and a quieter chat
+
+```text
+Make suggestions to declutter the UX and simplify interactions. Take inspiration from [redacted].
+```
+
+- `feat(design): swipe to decide, with a tested gesture model`
+- `feat(design): the approval card asks in plain words, and payments are money cards`
+- `feat(core): the demo assistant replies in one line, and gives its reasons in its own words`
+- `feat(web): one line per action, and swipe everywhere`
+- `feat(playground): every swipe configuration, payments included`
+- `chore(mcp): keep the CLI executable`
+- `test: drive the browser test by swipe and hold`
+- `docs: swipe to decide, money cards and a quieter chat`
+
