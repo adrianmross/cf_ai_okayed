@@ -207,3 +207,27 @@ Make suggestions to declutter the UX and simplify interactions. Take inspiration
 - `test: drive the browser test by swipe and hold`
 - `docs: swipe to decide, money cards and a quieter chat`
 
+## 11. Live, and open to the public
+
+CI and the deploy, then what showed up once it ran on the real Workers AI and I used it:
+
+```text
+Since this is public, what are some Cloudflare approaches to prevent abuse?
+```
+
+```text
+Diagnose why the chat stops replying after going to another page and back. Propose a solution.
+```
+
+- `ci: add test, end-to-end and deploy workflows`
+- `fix(worker): simulate streaming so Workers AI tool calls arrive whole`
+- `docs: link the deployed demo and playground`
+- `fix(worker): let the live assistant answer after a tool, and take amounts as strings`
+- `feat(worker): limit model calls per person`
+- `fix(web): no flash when a rule allows an action`
+- `fix(web): keep the chat mounted on other pages`
+- `fix(web): leave rule-approved tool calls to the server`
+- `fix(web): show the saved chat after a reload`
+- `fix(core): the assistant chats, asks for a missing repo and takes "prod"`
+- `fix(design): the swipe holds while Face ID and signing run`
+
