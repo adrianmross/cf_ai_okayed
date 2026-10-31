@@ -231,3 +231,21 @@ Diagnose why the chat stops replying after going to another page and back. Propo
 - `fix(core): the assistant chats, asks for a missing repo and takes "prod"`
 - `fix(design): the swipe holds while Face ID and signing run`
 
+## 12. Sign-in, keys, and a stalled passkey
+
+```text
+How can we showcase OAuth2/OIDC integration more?
+```
+
+```text
+If no passkey is set up, approvals in the chat stall instead of asking for one. Fix.
+```
+
+- `feat(web): reset the chat or the whole demo from Settings`
+- `feat(playground): show sign-in providers, org limits and OAuth scopes`
+- `feat(web): Reset chat sits in the chat header`
+- `feat(design): one KeyChip for ids and keys, used in receipts and Settings`
+- `feat(playground): a sign-in screen with provider logos and who signs what`
+- `test(e2e): read receipt ids in their KeyChip form`
+- `fix(web): a passkey prompt that never answers no longer hangs the approval`
+
