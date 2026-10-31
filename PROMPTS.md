@@ -249,3 +249,22 @@ If no passkey is set up, approvals in the chat stall instead of asking for one. 
 - `test(e2e): read receipt ids in their KeyChip form`
 - `fix(web): a passkey prompt that never answers no longer hangs the approval`
 
+## 13. Words → grant: a steady layout, hints and highlighting
+
+```text
+There's too much movement when using the app: switching between Balanced and Cautious makes the page jump. Things
+should stay in place, and only the words or elements that change (like the number of rule cards) should change. Fix.
+Recommend some shadcn prebuilt components and lazy-loading approaches, so it feels native.
+```
+
+```text
+No duplicate or over-verbose explanations: move longer explanations and hints behind an info icon. And add syntax
+highlighting to the playground's input box as you type, like in [redacted].
+```
+
+- `feat(playground): Words → grant explains its examples, queues pending requests and shows details`
+- `feat(playground): ghost-text examples in Words → grant, and Add opens the queue builder`
+- `feat(engine): highlight() marks what a sentence pins down, with positions`
+- `feat(playground): color words as you type, hints behind info icons, steady Ask layout, lazy views`
+- `perf(web): lazy-load Rules, Activity and Settings`
+- `test(scripts): wait for the lazy Rules page in the web e2e`
