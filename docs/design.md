@@ -41,6 +41,19 @@ okayed sits between the sentence and the tool:
 - **Everything can be taken back.** Grants are revocable at any time. An emergency stop (kind 4844) revokes every
   live grant and pauses auto-approval.
 
+## Where each principle lives
+
+| Rule | Where |
+|---|---|
+| Least privilege by construction: exact targets, shortest reasonable lifetime, fewest uses | `engine/src/narrow.ts`, `engine/src/catalog.ts` |
+| Never broader than what the person said. Every pinned value comes from their words or the one request they point at | `engine/src/anchors.ts`, `narrowGrant` |
+| Ambiguity is a question ("Which site?", "Which environment?", "Which commit?") | `bind` / `bindFromWords` in `narrow.ts` |
+| Standing policies for repeat actions, bounded by horizon, count, risk budget and conditions; each use is still its own exact grant | `engine/src/policy.ts`, `core/src/service.ts` |
+| Layered policy: each layer can only narrow the one above; the reason names the first layer that refuses | `engine/src/policy.ts` |
+| "Once" means exactly one use: the Durable Object decrements inside a storage transaction | `OkayedService.verify` |
+| Revocable at any time; expiry enforced by the Workflow and by verifiers | `core/src/flow.ts`, `engine/src/use.ts` |
+| The agent never sees the GitHub token: the Worker swaps it in only under a live grant | `core/src/github.ts` |
+
 ## Policy model
 
 Policy is **standing authority**: what an agent may do again and again, within bounds the person picks. The engine
@@ -253,3 +266,23 @@ engine, scored by the same evals.
 
 Multi-act grants, delegation chains, payment rails, real user accounts, and relay publication. Events are stored and
 can be fetched as Nostr JSON, but are not pushed to relays.
+
+## Limitations (v0)
+
+- Without Access or an OIDC provider, identity is a bearer owner token per user and minted agent tokens. Passkeys
+  sign approvals, but don't yet sign you in.
+- The demo's tools are simulated. The connectors in `packages/connectors` are real and take the same grants.
+- SAML assertions aren't verified by okayed itself (put Access or a SAML library in front), and UCANs are mapped as
+  payloads, not signed envelopes.
+- One action per grant. There are no delegation chains, and events are not yet published to relays.
+- `POST /verify` with `consume: true` requires the grant event, not just its id. Anyone holding the event can spend
+  its use, which is safe for the intended flow (agent → tool) but is not proof of who the caller is.
+- Learned PR heads come from agent requests unless `GITHUB_TOKEN` is set. With the token, the Worker checks the head
+  against GitHub and refuses a mismatch.
+- Paired approver apps work end to end on okayed's side, but no app ships with okayed yet. Apps are woken through
+  Queues when they give a wake URL; otherwise they poll their inbox.
+- Some Cloudflare pieces need an account to run, so they're covered by unit tests and a dry-run deploy rather than a
+  live run here: Access (JWT checks against a generated key), real deploys (against a stand-in Cloudflare API),
+  AI Gateway, Whisper and Turnstile.
+- The interpretation evals compare models only with your API credentials. The numbers here are the heuristic's.
+- Event kinds 4840–4845 and 34840 are placeholders, not registered NIPs.
